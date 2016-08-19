@@ -37,7 +37,7 @@ theme = "hugo-icarus-theme"
 [[params.menu]]
     before = true
     label  = "Who's Franck?"
-    link   = "welcome/"
+    link   = "biography/"
 
 [[params.menu]]
     before = false
