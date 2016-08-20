@@ -2,7 +2,7 @@
 title: "Research Activities"
 categories: [about-me, research]
 date: "2016-08-17T14:53:31+02:00"
-draft: true
+draft: false
 ---
 
 ## Research Interests

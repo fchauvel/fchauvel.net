@@ -1,6 +1,6 @@
 ---
 date: "2016-08-17T13:16:39+02:00"
-draft: true
+draft: false
 title: "Publications"
 categories: ["research"]
 

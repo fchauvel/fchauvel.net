@@ -2,7 +2,7 @@ baseurl = "http://fchauvel.net/"
 languageCode = "en-us"
 title = "Franck Chauvel"
 # Enable comments by entering your Disqus shortname
-disqusShortname = "spf13"
+disqusShortname = "fchauvel-net"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
 # Define the number of posts per page
@@ -20,7 +20,7 @@ theme = "hugo-icarus-theme"
     author = "Franck Chauvel"
     bio = "Programmer doing Research"
     location = "Oslo, Norway"
-    #site_description = ""
+    site_description = "Gugu"
     copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
     avatar = "franck.png"
     logo = "css/images/logo.png"

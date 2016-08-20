@@ -1,7 +1,7 @@
 ---
 categories: [about-me]
 date: "2016-08-17T13:29:59+02:00"
-draft: true
+draft: false
 title: "Biography"
 ---
 
