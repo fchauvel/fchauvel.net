@@ -14,7 +14,7 @@
     placeholder = "Search"
 
 [pagination]
-    previous = "Prev"
+    previous = "Previous"
     next = "Next"
 
 [profile]
