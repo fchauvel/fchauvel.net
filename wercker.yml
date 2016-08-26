@@ -27,6 +27,8 @@ deploy:
   steps:
     - install-packages:
         packages: openssh-client lftp
+    - add-ssh-key:
+            keyname: deploy
     - script:
         name: Mirror on gandi with gandi.net
         code: |
