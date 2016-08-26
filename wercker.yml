@@ -34,5 +34,6 @@ deploy:
         code: |
            ls -l
            cat ~/.ssh/config
+           cat /tmp/tmp.*
            echo -e "set sftp:connect-program 'ssh -a -x -i ~/.ssh/config';\nopen -u 886876,xxx sftp://sftp.dc0.gpaas.net;\nmirror -c -e -R public vhosts/wuchauvel.net/htdocs/franck;" > script.txt
            lftp -d -f script.txt
