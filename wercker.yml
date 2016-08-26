@@ -27,15 +27,17 @@ deploy:
   steps:
     - install-packages:
         packages: openssh-client lftp
+    - add-to-known_hosts:
+        hostname: sftp://sftp.dc0.gpaas.net
     - add-ssh-key:
-            keyname: DEPLOY
+        keyname: DEPLOY
     - mktemp:
-            envvar: PATH_TO_PRIVATE_KEY
+        envvar: PATH_TO_PRIVATE_KEY
     - create-file:
-            name: Generate the key file
-            filename: $PATH_TO_PRIVATE_KEY
-            content: $DEPLOY_PRIVATE
-            overwrite: true
+        name: Generate the key file
+        filename: $PATH_TO_PRIVATE_KEY
+        content: $DEPLOY_PRIVATE
+        overwrite: true
     - script:
         name: Mirror on gandi.net
         code: |
