@@ -29,14 +29,17 @@ deploy:
         packages: openssh-client lftp
     - add-ssh-key:
             keyname: DEPLOY
+    - mktemp:
+            envvar: PATH_TO_PRIVATE_KEY
     - create-file:
             name: Generate the key file
-            filename: ~/.ssh/id_rsa
+            filename: $PATH_TO_PRIVATE_KEY
             content: $DEPLOY_PRIVATE
             overwrite: true
     - script:
         name: Mirror on gandi with gandi.net
         code: |
            env
-           echo -e "set sftp:connect-program 'ssh -a -x -i ~/.ssh/id_rsa;\nopen -u 886876,xxx sftp://sftp.dc0.gpaas.net;\nmirror -c -e -R public vhosts/wuchauvel.net/htdocs/franck;" > script.txt
+           cat $PATH_TO_PRIVATE_KEY
+           echo -e "set sftp:connect-program 'ssh -a -x -i $PATH_TO_PRIVATE_KEY;\nopen -u 886876,xxx sftp://sftp.dc0.gpaas.net;\nmirror -c -e -R public vhosts/wuchauvel.net/htdocs/franck;" > script.txt
            lftp -d -f script.txt
