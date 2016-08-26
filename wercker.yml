@@ -33,5 +33,6 @@ deploy:
         name: Mirror on gandi with gandi.net
         code: |
            ls -l
-           echo -e "open -u 886876,xxx sftp://sftp.dc0.gpaas.net;\nmirror -c -e -R public vhosts/wuchauvel.net/htdocs/franck;" > script.txt
+           cat ~/.ssh/config
+           echo -e "set sftp:connect-program '~/.ssh/config';\nopen -u 886876,xxx sftp://sftp.dc0.gpaas.net;\nmirror -c -e -R public vhosts/wuchauvel.net/htdocs/franck;" > script.txt
            lftp -d -f script.txt
