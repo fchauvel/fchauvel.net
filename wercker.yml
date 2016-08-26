@@ -21,8 +21,9 @@ build:
     # http://devcenter.wercker.com/docs/steps/index.html
   steps:
     - arjen/hugo-build:
-        version: "0.15"
+        version: "0.16"
         theme: hugo-icarus-theme
+        flags: -v
 deploy:
   steps:
     - install-packages:
@@ -41,8 +42,8 @@ deploy:
     - script:
         name: Mirror on gandi.net
         code: |
-           env
-           cat $PATH_TO_PRIVATE_KEY
+           #env
+           #cat $PATH_TO_PRIVATE_KEY
            echo "
            set sftp:connect-program 'ssh -a -x -i $PATH_TO_PRIVATE_KEY';
            open -u 886876,xxx sftp://sftp.dc0.gpaas.net;
