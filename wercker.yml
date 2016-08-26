@@ -28,8 +28,8 @@ deploy:
     - install-packages:
         packages: lftp
     - script:
-		name: Generate the lftp script
-		code: echo -e "open -u 886876,xxx sftp://886876@sftp.dc0.gpaas.net; mirror -c -e -R public vhosts/wuchauvel.net/htdocs/franck" > script.txt
-	- script:
+        name: Generate the lftp script
+        code: echo -e "open -u 886876,xxx sftp://886876@sftp.dc0.gpaas.net; mirror -c -e -R public vhosts/wuchauvel.net/htdocs/franck" > script.txt
+    - script:
         name: Mirror on gandi with gandi.net
         code: lftp  -f script.txt
