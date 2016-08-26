@@ -30,10 +30,7 @@ deploy:
     - script:
         name: Mirror on gandi with gandi.net
         code: |
+           ls -l
            echo -e "open -u 886876,xxx sftp://886876@sftp.dc0.gpaas.net; mirror -c -e -R public vhosts/wuchauvel.net/htdocs/franck" > script.txt
            lftp -f script.txt --log=upload.log
-  after-steps:
-    - script:
-        name: Show what happened with LFTP
-        code: cat upload.log
-      
+		   
