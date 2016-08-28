@@ -38,20 +38,18 @@ deploy:
         hostname: sftp.dc0.gpaas.net
     - add-ssh-key:
         keyname: DEPLOY
-    - mktemp:
-        envvar: PATH_TO_PRIVATE_KEY
-    - create-file:
-        name: Generate the key file
-        filename: $PATH_TO_PRIVATE_KEY
-        content: $DEPLOY_PRIVATE
-        overwrite: true
+#    - mktemp:
+#        envvar: PATH_TO_PRIVATE_KEY
+#    - create-file:
+#        name: Generate the key file
+#        filename: $PATH_TO_PRIVATE_KEY
+#        content: $DEPLOY_PRIVATE
+#        overwrite: true
     - script:
         name: Mirror on gandi.net
         code: |
-           #env
-           #cat $PATH_TO_PRIVATE_KEY
            echo "
-           set sftp:connect-program 'ssh -a -x -i $PATH_TO_PRIVATE_KEY';
+           set sftp:connect-program 'ssh -a -x -i /root/.shh/config';
            open -u 886876,xxx sftp://sftp.dc0.gpaas.net;
            mirror -c -e -R public vhosts/wuchauvel.net/htdocs/franck;" > script.txt
            lftp -d -f script.txt
