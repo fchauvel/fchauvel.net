@@ -1,38 +1,29 @@
 +++
 banner = ""
-categories = []
+categories = ["sys-admin"]
 date = "2016-08-28T07:38:22+02:00"
 description = ""
 images = []
 menu = ""
-tags = ["gandi.net", "lftp", "codeship.io"]
+tags = ["gandi.net"]
 title = "How to Automatically Deploy on Gandi?"
-draft = "true"
 +++
 
-fchauvel.net&mdash;this very website&mdash;is built with
-[Hugo](http://gohugo.io) and hosted by
-[Gandi.net](http://gandi.net). I explain below several strategy to
-automate the deployment ono Gandi's simple hosting solution.
+I host fchauvel.net (this very website) on
+[Gandi.net](http://gandi.net).  I use [Hugo](http://gohugo.io) to
+generate it and I explain below how, each time I update its content, I
+automatically upload the new website.
+ 
+## Upload to Gandi.net using LFTP
 
-## Gandi.net Simple Hosting
+Gandi offers several hosting solutions, from which I have chosen
+*simple hosting*. Generally, I use `rsync` or `scp` to upload all my
+content in one go, but Gandi restricts access to either SFTP or GIT.
 
-Gandi offers several hosting solutions, among which is the *simple
-hosting* that I use. Unfortunately, Gandi restrict access to SFTP or
-SSH, but the SSH console has first to be activated on the Gandi portal
-and remains available for only two hours. `rsync`, `scp` and the likes
-are not supported. So, here are the two steps I use to overcome these
-restrictions:
-
-1. __Register your public SSH-RSA key to the Gandi portal.__ If
-the Gandi.net portal rejects your key&mdash; as it does to mine&mdash;
-you can still manually edit the `.ssh/authorized_keys` in a SFTP
-session open with login and password.
-
-2. __Use `lftp` to automatically synchronise your
-content.__ [`lftp`](https://lftp.yar.ru/) is a very powerful FTP client,
-that supports many protocols, and above all, is scriptable. Here is
-the script I use:
+I eventually used `lftp` to automatically synchronise my local content
+with my Gandi host. [`lftp`](https://lftp.yar.ru/) is a very powerful
+FTP client that supports many protocols, and above all, is
+'scriptable'. Here is the script I wrote:
 
  ````
  #!/usr/bash -f
@@ -42,49 +33,73 @@ the script I use:
  mirror -c -e -R $LOCAL_CONTENT $REMOTE_CONTENT" > upload_script.txt
  lftp -f upload_script.txt 
  ````
-A couple of explanation, though:
+
+A couple of explanations, though:
+
+* `lftp` is available in most Linux repositories. On Debian, I
+  installed it using `apt-get install lftp`.
  
-* Here, `$PATH_PRIVATE_KEY` must be replaced by the path to your SSH
-  private key.
+* You must replace `$PATH_PRIVATE_KEY` by the path to your own private
+  RSA key (on your local machine).  Remember to register the
+  associated public key on the Gandi portal. If the Gandi.net
+  portal rejects your key&mdash;as it did for mine&mdash;you can still
+  manually edit the `.ssh/authorized_keys` in a SFTP session opened
+  with login and password (I use
+  [WinSCP](https://winscp.net/eng/index.php) in that case).
 
 * `$GANDI_LOGIN` stands for your user login (e.g., 123456). It appears
-  on the Gandi portal, when place your mouse on a small information
-  sign, among the credentials.
+  on the Gandi portal, when you place your mouse on a small information
+  sign next to the SFTP entry.
 
-* Note that you must provide a dummy password, `xxx` in my script, to
-avoid LFTP to prompt you forone.
+* You __must__ provide a dummy password (`xxx` in my script) to avoid
+  LFTP to prompt you for one. This would make your script hang if you
+  use it to automate the upload (as shown below).
 
-## Continuous Deployment
+* Remember to use the `-d` option of `lftp` to debug issues. I find it
+  especially useful to investigate authentication failures.
+ 
 
-I actually generate this website using [Hugo](http://gohugo.io) from
-Markdown files, which I secure in a dedicated GitHub repository. What
-I want is to automate the deployment: When I push some changes to the
-content, I want the site to be rebuilt and redeployed, *automatically*.
+## Store Content on GitHub
 
-To do this, one important thing is to install themes as Git submodules,
-using:
+I generate this website using [Hugo](http://gohugo.io). Hugo converts
+articles written as simple Markdown files into complicated HTML
+pages. I secure these Markdown files along with Hugo's configuration
+in a dedicated [GitHub
+repository](http://github.com/fchauvel/fchauvel.net) and when I push
+some changes to GitHub, I want the site to be regenerated and
+redeployed, *automatically*.
 
-````
-$> cd themes
+The trick is to install Hugo's themes as Git submodules. If we do not,
+`git` would detect that themes are also GitHub repositories and their
+content would be excluded from your repository.  Any clone of your
+repository would then lack its themes. To install a theme as a
+submodule, I clone it using:
+
+````bash
+$> cd themes 
 $> git submodule add https://github.com/me/mytheme.git
 ````
 
-Then, we must clone the themes when the CI server checkout the
-code. Either do `git submodule update --init --recursive` before to
-build the website or ensure you make a recursive clone using `git
-clone --recursive https://github.com/me/mytheme.git`.
+Now, when I checkout my website's sources (say on the continuous
+integration server), I must explicitly ask Git to also clone the
+submodules (i.e., the themes). I either do `git submodule update
+--init --recursive` before to ask Hugo to build the website or I make
+a recursive clone using `git clone --recursive
+https://github.com/me/mytheme.git`.
 
 
-### Using Codeship.io
+## Automate Using Codeship.io
 
-As explained by [J-C
-Lavocat](http://jice.lavocat.name/blog/2015/hugo-deployment-via-codeship/),
-Codeship is one solution. He uses `rsync` instead of `lftp` but his
-solution works just fine. Here is how I adapted it:
+J.C. Lavocat explained [how to automate the deployment of Hugo site
+using
+Codeship.io](http://jice.lavocat.name/blog/2015/hugo-deployment-via-codeship/). He
+uses `rsync` instead of `lftp` but his solution works just fine. Here
+is how I adapted it:
 
 ````
 # Install Hugo, directly from Github
 go get -v -u github.com/spf13/hugo
+cd ~/clone
 hugo
 
 # Mirror the content
@@ -94,17 +109,33 @@ mirror -c -e -R public $REMOTE_CONTENT" > upload_script.txt
 lftp -f upload_script.txt 
 ```` 
 
-### Using Wercker
-The [Hugo's documentation](https://gohugo.io/tutorials/automated-deployments/) recommends using [Wercker](http://wercker.com), but in my view, it is more convoluted. It permits to use a specific version of Hugo, though. Proceed as follows:
+The downside is that we then automatically fetch the latest
+development version of Hugo's sources, instead installing the latest
+stable release. From time to time the generation will fail because of
+some new and unstable features under development.
+
+## Or Automate Using Wercker
+
+[Hugo's
+documentation](https://gohugo.io/tutorials/automated-deployments/)
+actually suggests using [Wercker](http://wercker.com). In my view,
+it is more convoluted, but it permits specifying a version of
+Hugo. I proceed as follows:
 
 1. Register to the Wercker website;
 2. Create a `wercker.yml` configuration (see below); 
-3. Create a deployment pipeline, and generate a new pair of SSH-KEY to the deploy step;
-4. Register your public SSH-RSA key on Gandi.net. (I had to do it manually, by editing the `.ssh/authorized_keys`).
+3. Create a deployment pipeline, and generate a new pair of RSA keys attached to the deploy step;
+4. Register your public RSA key on Gandi.net. (I had to do it manually, by editing the `.ssh/authorized_keys`).
 
-Here is the `wercker.yml` that eventually worked for me, after many
-trials and error&mdashI must admit. I adapted [Joseph Stahl's
-solution](https://josephstahl.com/blog/2015/04/24/publishing-a-hugo-blog-to-digitalocean-with-wercker/).
+Below is the `wercker.yml` that eventually worked for me, after many
+trials and errors&mdash;I must admit. I adapted [Joseph Stahl's
+solution to deploy on Digital
+Ocean](https://josephstahl.com/blog/2015/04/24/publishing-a-hugo-blog-to-digitalocean-with-wercker/). I change two things: 
+ 
+* I adjusted the build phase so that I also clone the themes as
+submodules.  
+* I do not fetch and store the private key manually, I
+use the `add-ssh-key` step instead.
 
 ````yml
 box: debian
@@ -138,5 +169,3 @@ deploy:
            lftp -d -f script.txt
 ````
 
-I adjusted the build phase so that I also clone the themes as
-submodules. 

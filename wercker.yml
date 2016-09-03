@@ -38,13 +38,6 @@ deploy:
         hostname: sftp.dc0.gpaas.net
     - add-ssh-key:
         keyname: DEPLOY
-#    - mktemp:
-#        envvar: PATH_TO_PRIVATE_KEY
-#    - create-file:
-#        name: Generate the key file
-#        filename: $PATH_TO_PRIVATE_KEY
-#        content: $DEPLOY_PRIVATE
-#        overwrite: true
     - script:
         name: Mirror on gandi.net
         code: |
