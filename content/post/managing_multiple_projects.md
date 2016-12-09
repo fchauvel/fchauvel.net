@@ -3,7 +3,7 @@ categories = ["productivity"]
 date = "2016-08-23T15:45:36+02:00"
 description = "How I increased my productivity"
 images = []
-banner = "images/kanban_live.png"
+banner = "images/process.jpg"
 tags = ["kanban"]
 title = "Getting more productive!"
 +++

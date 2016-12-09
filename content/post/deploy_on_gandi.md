@@ -1,5 +1,5 @@
 +++
-banner = ""
+banner = "images/code.jpg"
 categories = ["sys-admin"]
 date = "2016-08-28T07:38:22+02:00"
 description = ""
