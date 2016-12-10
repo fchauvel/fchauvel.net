@@ -6,7 +6,7 @@ description = "What I would like to learn from a review"
 images = []
 menu = ""
 tags = ["research", "review"]
-title = "The Reviews I Wish kto Get"
+title = "The Reviews I Wish to Get"
 +++
 
 As a researcher, I submit research articles for peer-review. The
