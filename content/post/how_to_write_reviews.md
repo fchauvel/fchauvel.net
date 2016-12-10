@@ -1,12 +1,12 @@
 +++
 banner = "images/books.jpg"
-categories = []
+categories = [research]
 date = "2016-11-16T14:49:59+01:00"
 description = "What I would like to learn from a review"
 images = []
 menu = ""
-tags = ["research"]
-title = "The Reviews I Wish to Get"
+tags = ["research", "review"]
+title = "The Reviews I Wish kto Get"
 +++
 
 As a researcher, I submit research articles for peer-review. The
