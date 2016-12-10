@@ -1,6 +1,6 @@
 +++
 banner = "images/books.jpg"
-categories = [research]
+categories = ["research"]
 date = "2016-11-16T14:49:59+01:00"
 description = "What I would like to learn from a review"
 images = []
