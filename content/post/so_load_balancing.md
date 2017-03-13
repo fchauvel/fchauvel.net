@@ -108,8 +108,9 @@ req/s suffice to sustain 6 servers.
 ![Fig. 1 Evolution of the number of servers for different living costs](/franck/images/sensitivity_to_living_cost.png)
 
 Fig. 1 shows how the number of servers evolves with different living
-cost ($c$). It suggests that this living cost impacts both the total
-number of servers that will eventually survive&mdash;the "steady
+cost ($c$). The dashed line show the carrying capacity associated with
+each living cost. It suggests that this living cost impacts both the
+total number of servers that will eventually survive&mdash;the "steady
 state" in Control theory parlance&mdash;but also affects the time it
 takes for the system to react&mdash;the raising time.
 
@@ -152,6 +153,17 @@ cost also drives the time needed to stabilise the response time, but
 that the response time eventually settle down very close to the
 individual service time.
 
+# Related Work
+
+I found several attempts to build auto-scaling through self-organisation.
+
+The Scarce framework (Bonvin et al., 2011) also uses "economical
+agents" that migrate or provision software components/service to
+maximise the utility of these components. These agents, which are
+deployed on virtual machines (VM), communicate to reach consensus and
+solve a distributed allocation optimisation problem.
+
+
 # What Next?
 The dynamic of EAS-0 is more complicated that I anticipated. It makes
 me think of several questions:
@@ -173,10 +185,16 @@ me think of several questions:
 
 # References
 
-Jones et al. 2004
+Bonvin et al., 2011
+: N. Bonvin, T. G. Papaioannou and K. Aberer, 2011. "Autonomic SLA-Driven
+  Provisioning for Cloud Applications," In Proceedings of the 11th IEEE/ACM
+  International Symposium on Cluster, Cloud and Grid Computing,
+  Newport Beach, CA, 2011, pp. 434&ndash;443.
+
+Jones et al., 2004
 : Jones, J.C., Myerscough, M.R., Graham, S. and Oldroyd,
   B.P., 2004. Honey bee nest thermoregulation: diversity promotes
-  stability. Science, 305(5682), pp.402-404.
+  stability. Science, 305(5682), pp.402&ndash;404.
 
 Holland 2012 
 : John H. Holland. 2012. Signals and Boundaries: Building Blocks for
