@@ -1,3 +1,8 @@
 [submodule "themes/hugo-icarus-theme"]
 	path = themes/hugo-icarus-theme
-	url = https://github.com/digitalcraftsman/hugo-icarus-theme.git
+	url = https://github.com/fchauvel/hugo-icarus-theme.git
+[submodule "public"]
+	path = public
+	url = https://github.com/fchauvel/fchauvel.github.io.git
+	branch = master
+

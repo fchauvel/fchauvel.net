@@ -1,4 +1,4 @@
-baseurl = "http://wuchauvel.net/franck/"
+baseurl = "//fchauvel.github.io"
 languageCode = "en-us"
 title = "Franck Chauvel"
 # Enable comments by entering your Disqus shortname
@@ -22,8 +22,8 @@ theme = "hugo-icarus-theme"
     location = "Oslo, Norway"
     site_description = "Franck's Personal Page"
     copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
-    avatar = "css/images/avatar.png"
-    logo = "css/images/logo.png"
+    avatar = "images/avatar.jpg"
+    logo = "images/logo.png"
 
     # Format dates with Go's time formatting
     date_format = "2006-01-02"
@@ -95,7 +95,7 @@ theme = "hugo-icarus-theme"
     facebook        = ""
     facebook_admin  = ""
     twitter_domain  = ""
-    twitter         = ""
+    twitter         = "fchauvel1"
 
 # Enable and disable widgets for the right sidebar
 [params.widgets]
