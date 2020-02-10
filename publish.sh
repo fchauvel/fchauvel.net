@@ -32,18 +32,14 @@ then
     exit 1
 fi
 
-COMMIT_MESSAGE="${CONTENT_DESCRIPTION} \n\
- - Content: fchauvel/fchauvel.net#${CONTENT_HASH}\n\
- - Theme:  fchauvel/hugo-icarus-theme#${THEME_HASH}\n"
-
-printf "${COMMIT_MESSAGE}"
-
 cd public
 
-git checkout master
+git checkout 
 git add .
-git commit -m "${COMMIT_MESSAGE}"
-
+git commit -m "${CONTENT_DESCRIPTION}" \
+    -m " - Content: fchauvel/fchauvel.net#${CONTENT_HASH}" \
+    -m " - Theme:  fchauvel/hugo-icarus-theme#${THEME_HASH}"
+    
 git remote rm origin
 git remote add origin https://fchauvel:${GITHUB_TOKEN}@github.com/fchauvel/fchauvel.github.io
 git push origin master
