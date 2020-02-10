@@ -16,7 +16,7 @@ LOG_FILE="hugo.log"
 if [[ -z "${GITHUB_TOKEN}" ]]
 then
     printf "Error: The Github token is not available!\n"
-    exit(1)
+    exit 1
 fi
 
 printf "Rebuilding the website \n"
@@ -27,7 +27,7 @@ hugo > hugo.log
 if [ $? -ne 0 ]
 then
     printf "Please fix issues raised by hugo (see ${LOG_FILE})\n"
-    exit(1)
+    exit 1
 fi
 
 COMMIT_MESSAGE="${CONTENT_DESCRIPTION} \n\
@@ -37,11 +37,11 @@ COMMIT_MESSAGE="${CONTENT_DESCRIPTION} \n\
 printf "${COMMIT_MESSAGE}"
 
 cd public
-git remote rm origin
-git remote add origin https://fchauvel:${GITHUB_TOKEN}@github.com/fchauvel/fchauvel.github.io
+#git remote rm origin
+#git remote add origin https://fchauvel:${GITHUB_TOKEN}@github.com/fchauvel/fchauvel.github.io
 
-git add .
-git commit -m "${COMMIT_MESSAGE}"
-git push origin master
+#git add .
+#git commit -m "${COMMIT_MESSAGE}"
+#git push origin master
 
 printf "\nCheck out 'https://fchauvel.github.io/'\n"
