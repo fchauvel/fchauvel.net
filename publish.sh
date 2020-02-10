@@ -34,7 +34,7 @@ fi
 
 cd public
 
-git checkout 
+git checkout master
 git add .
 git commit -m "${CONTENT_DESCRIPTION}" \
     -m " - Content: fchauvel/fchauvel.net#${CONTENT_HASH}" \
