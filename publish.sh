@@ -13,6 +13,8 @@ THEME_DESCRIPTION=$(cd themes/hugo-icarus-theme && git log -1 --pretty=%B | head
 LOG_FILE="hugo.log"
 
 
+git submodule update --remote
+
 if [[ -z "${GITHUB_TOKEN}" ]]
 then
     printf "Error: The Github token is not available!\n"
@@ -38,6 +40,7 @@ printf "${COMMIT_MESSAGE}"
 
 cd public
 
+git checkout -b master --track origin/master
 git add .
 git commit -m "${COMMIT_MESSAGE}"
 
