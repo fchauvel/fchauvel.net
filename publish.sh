@@ -37,11 +37,12 @@ COMMIT_MESSAGE="${CONTENT_DESCRIPTION} \n\
 printf "${COMMIT_MESSAGE}"
 
 cd public
-git remote rm origin
-git remote add origin https://fchauvel:${GITHUB_TOKEN}@github.com/fchauvel/fchauvel.github.io
 
 git add .
 git commit -m "${COMMIT_MESSAGE}"
+
+git remote rm origin
+git remote add origin https://fchauvel:${GITHUB_TOKEN}@github.com/fchauvel/fchauvel.github.io
 git push origin master
 
 printf "\nCheck out 'https://fchauvel.github.io/'\n"
