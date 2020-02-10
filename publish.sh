@@ -40,7 +40,7 @@ printf "${COMMIT_MESSAGE}"
 
 cd public
 
-git checkout -b master --track origin/master
+git checkout master
 git add .
 git commit -m "${COMMIT_MESSAGE}"
 
