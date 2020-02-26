@@ -19,7 +19,7 @@ theme = "hugo-icarus-theme"
     # Tell me who you are
     author = "Franck Chauvel"
     bio = "Programmer doing Research"
-    location = "Oslo, Norway"
+    location = "Ålesund, Norway"
     site_description = "Franck's Personal Page"
     copyright  = "Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice)."
     avatar = "images/avatar.jpg"
