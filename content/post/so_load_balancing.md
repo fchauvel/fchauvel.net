@@ -6,7 +6,7 @@ description = "A pocket-sized experiment to explore the dynamics of emergent aut
 categories = ["research"]
 tags = ["self-organisation", "microservices", "simulation", "python"]
 images = []
-banner = "images/books.jpg"
+banner = "images/research.jpg"
 +++
 
 I noted that services tend to become smaller and more
@@ -27,44 +27,44 @@ think of, where autonomous services should scale up and down without
 the need for a centralised load-balancer. This model&mdash;a tad
 mercantile, in fact venal&mdash;relies on the following assumptions:
 
- 1. *Clients:* 
-     
-	 1. Each client follows the "publish-find-invoke" principle that
+ 1. *Clients:*
+
+     1. Each client follows the "publish-find-invoke" principle that
         underlies service-oriented architecture (SOA). Clients first
         query a registry to know available endpoints, and then select
         the one they prefer, for whatever reasons be it price,
         performance, etc. Here, all clients choose the service with
         the shortest response time.
- 
+
  2. *Services:*
- 
-	 3. Each service processes requests at a fixed rate. When too many
+
+     3. Each service processes requests at a fixed rate. When too many
         requests arrive, they are placed in an waiting queue, ideally
         an infinite one. Services process requests in the order they
         arrive.
 
-	 4. Each service publishes its performance (i.e., their expected
+     4. Each service publishes its performance (i.e., their expected
         response time) so that clients can decided whether it is a
         good candidate.
- 
+
  3. *Money as Resources*
- 
+
      2. Each service has a budget, in euros for instance.
- 
-	 3. Each service pays to exist: it shall pay for the time it
+
+     3. Each service pays to exist: it shall pay for the time it
         runs. This captures roughly services that rely on cloud
         resources, for which someone gets a bill, eventually.
- 
+
      4. Each service makes money by processing requests. Clients pay a fix
         price per request.
- 
+
  4. *Life and Death*
- 
-	 5. Once a service is rich enough, it can purchase new resources to
-		run a copy of itself. This new instance automatically registers
-		so that clients know about it, consequently.
-	
-	 6. A service dies when it runs out of money. Clients cannot
+
+     5. Once a service is rich enough, it can purchase new resources to
+        run a copy of itself. This new instance automatically registers
+        so that clients know about it, consequently.
+
+     6. A service dies when it runs out of money. Clients cannot
         invoke it anymore and the remaining requests are marked as
         failed.
 
@@ -77,7 +77,7 @@ am looking to see how well the population of server behaves:
 
  1. From the perspective of the service providers, that is how many
     servers are up and running, and therefore costing money.
-   
+
  2. From the perspective of the client, that is what is the response
     time of the system.
 
@@ -91,8 +91,8 @@ conditions:
  * One second of execution costs 2 &euro; ($c_L$);
  * Reproduction costs a server 10 &euro; ($c_R$);
  * The clients send a total of 50 req/s ($r_A$).
- 
- 
+
+
 ## Resource Consumption?
 Simulations suggest that the total number of server converges toward
 the maximal number of servers that can makes profit on a given
@@ -196,6 +196,6 @@ Jones et al., 2004
   B.P., 2004. Honey bee nest thermoregulation: diversity promotes
   stability. Science, 305(5682), pp.402&ndash;404.
 
-Holland 2012 
+Holland 2012
 : John H. Holland. 2012. Signals and Boundaries: Building Blocks for
   Complex Adaptive Systems. The MIT Press.

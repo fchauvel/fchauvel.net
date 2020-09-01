@@ -36,7 +36,7 @@ theme = "hugo-icarus-theme"
 # and "Tags" / "Categories" after them.
 [[params.menu]]
     before = true
-    label  = "Who's Franck?"
+    label  = "Biography"
     link   = "biography/"
 
 [[params.menu]]
@@ -56,6 +56,11 @@ theme = "hugo-icarus-theme"
 
 [[params.menu]]
     before = false
+    label  = "Book Reviews"
+    link   = "book-reviews/" 
+
+[[params.menu]]
+    before = false
     label  = "Categories"
     link   = "categories/"
 
@@ -69,7 +74,7 @@ theme = "hugo-icarus-theme"
 # by entering your username. The links to your account will be
 # created automatically.
     github          = "fchauvel"
-    gitlab          = ""
+    gitlab          = "fchauvel"
     bitbucket       = "fchauvel"
     jsfiddle        = ""
     codepen         = ""
@@ -86,7 +91,7 @@ theme = "hugo-icarus-theme"
     wordpress       = ""
     tumblr          = ""
     xing            = ""
-    linkedin        = "franck.chauvel@gmail.com"
+    linkedin        = "fchauvel"
     slideshare      = ""
     stackoverflow   = ""
     reddit          = ""

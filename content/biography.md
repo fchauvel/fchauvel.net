@@ -2,10 +2,13 @@
 categories: [about-me]
 date: "2016-08-17T13:29:59+02:00"
 draft: false
-title: "Who is Franck?"
+title: "Biography"
 ---
 
-It is me, the guy who publish this website.
+Hi, I'm Franck! Enthusiasm and curiosity have turned me into a "Swiss
+knife". Not only do I design, manage and sell research & innovation
+projects in Software Engineering, but I still write code!
+
 
 ## What am I looking for?
 
