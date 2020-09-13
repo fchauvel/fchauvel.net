@@ -56,11 +56,6 @@ theme = "hugo-icarus-theme"
 
 [[params.menu]]
     before = false
-    label  = "Book Reviews"
-    link   = "book-reviews/" 
-
-[[params.menu]]
-    before = false
     label  = "Categories"
     link   = "categories/"
 
