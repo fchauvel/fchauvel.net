@@ -13,6 +13,9 @@ I like coding and I am lucky enough to get the opportunity to develop
 open source software as part of my job. I have been involved in
 development of the tools including:
 
+-   [__GeneSIS__](https://enact.gitlab.io/GeneSIS/#/) helps you deploy
+    and monitor complex smart IoT systems.
+
 -   [__CAMP__](https://STAMP-project.github.io/camp) helps you amplify
     your configuration tests. Given your docker resources, CAMP will
     run your tests in multiple environments, giving you confidence!
@@ -20,8 +23,7 @@ development of the tools including:
 -   [__CloudML__](https://cloudml.org) helps you deploys your
     application accross multiple clouds, such as AWS, Azure, etc.
 
-Below are the
-applications that I developed on my own:
+Below are the applications that I developed on my own:
 
  * [__RPP__](https://fchauvel.github.io/rpp) is NodeJS application
    which lets you makes projects plans from minimal textual

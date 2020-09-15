@@ -8,13 +8,14 @@ draft: false
 ## Research Interests
 
 I am a software engineer who ended up doing applied research. My
-interests therefore revolve about programming and software
-engineering.
+interests therefore revolve about programmin, software engineering,
+and artificial intelligence.
 
  * __Complex Adaptive Systems__ fascinates me, especially distributed
    ones. I observe that as software systems grow in both in size and
-   complexity, they resemble complex adaptive systems, whose behaviour
-   is difficult to understand, let alone to predict.
+   complexity and include more AI, they resemble complex adaptive
+   systems, whose behaviour is difficult to understand, let alone to
+   predict.
 
  * __Agile Software Development__ and the software craftsmanship ideas
    struck me as obvious once we know them. I am very interested in how
@@ -32,6 +33,21 @@ I have been lucky enough to join several international research
 projects and I am grateful for the competences I learnt from my
 colleagues, including programming, software architecture, mathematics,
 project management, etc.
+
+
+ * __[ENACT (2007 &ndash; 2021)](https://www.enact-project.eu/)__
+   develops tools and methods to systematically support DevOps for
+   trustworthy smart IoT systems. I contributed to
+   [GeneSIS](https://enact.gitlab.io/GeneSIS/#/), the ENACT tool to
+   automate deployment and monitoring.
+
+ * __[STAMP (2016 &ndash; 2019)](https://www.stamp-project.eu/)__
+   stands for Software Testing AMPlification. Leveraging advanced
+   research in automatic test generation, STAMP aims at pushing
+   automation in DevOps one step further through innovative methods of
+   test amplification. I developed
+   [CAMP](https://STAMP-project.github.io/camp), a tool to automate
+   configuration testing.
 
  * __[ARCADIA (2014&ndash;2017)](http://www.arcadia-framework.eu)__
    explores the development oh "highly distributed applications" (HDA),

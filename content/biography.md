@@ -5,7 +5,7 @@ draft: false
 title: "Biography"
 ---
 
-*Hi, I'm Franck!* I have always been passionate about writing
+__Hi, I'm Franck!__ I have always been passionate about writing
 software. While I started as a programmer (BS and MS in Computer
 Science), my need to learn and explore led me to research more than 15
 years ago. My enthusiasm and curiosity turned me into a "Swiss knife":
