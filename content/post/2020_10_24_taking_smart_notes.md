@@ -12,7 +12,7 @@ images = []
 <!-- hook -->
 
 Do you feel that you never have any idea or that your ideas are
-irrelevant or impractial? This book tells how to generate ideas by
+irrelevant or impractical? This book tells how to generate ideas by
 reading and taking notes!
 
 ![Book
